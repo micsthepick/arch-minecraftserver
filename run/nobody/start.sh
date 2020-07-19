@@ -42,4 +42,14 @@ fi
 echo "[info] Starting Minecraft Java process..."
 /usr/bin/minecraftd start
 echo "[info] Minecraft Java process is running"
+while :
+do
+	while pgrep -fa "java" > /dev/null;
+	do
+		sleep 10
+	done
+	sudo systemctl restart minecraftd
+	echo "[info] restarting Minecraft Java Process"
+	sleep 10
+done
 cat
